@@ -1,0 +1,231 @@
+﻿<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <title>vmarkmix</title>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        h1 {
+            text-align: center;
+            font-weight: bold;
+            color: rgb(0, 0, 0);
+            font-size: 50px;
+            font-family: Georgia, serif;
+            opacity: 0;
+            text-align:center;
+            animation: fade-in 2s forwards;
+            margin-top: -20px;
+        }
+
+        p {
+            font-size: 20px;
+            font-family: Georgia, Helvetica, sans-serif;
+            opacity: 0;
+            animation: fade-in 2s forwards 0.5s;
+        }
+
+        .rounded-box {
+    border: 5px solid rgb(8, 8, 8);
+    border-radius: 10px;
+    padding: 20px;
+    height: 63vh; /* Рамката да запълва почти цялата височина */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.slideshow-container {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.mySlides {
+    width: 90%;
+    height: 100%;
+    display: none;
+    position: relative;
+}
+
+.mySlides img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Гарантира, че цялото изображение се побира в рамката */
+    border-radius: 20px;
+    display: block;
+    background-color: white; /* Ако изображенията не запълват цялата рамка, фонът ще е видим */
+}
+
+
+
+        body {
+            background-image: url('balonqeta.AVIF');
+            background-attachment: fixed;
+            background-size: 100% 110%;
+            margin: 0;
+            font-family: Georgia, Helvetica, sans-serif;
+        }
+        .topnav a {
+            float: center;
+            color: black;
+            text-align: center;
+            padding: 12px 16px;
+            text-decoration: none;
+            font-size: 20px;
+            
+        }
+        .topnav img {
+    height: 100px;
+    width: 170px;
+}
+.topnav {
+    display: flex;  
+    background-color: rgb(254, 253, 255);
+}
+        .topnav a:hover {
+            background-color: #ffffff;
+            color: black;
+    
+        }
+
+        img {
+            float: center;
+        }
+
+        .decorated-text {
+            border-bottom: 2px solid black;
+            padding-bottom: 2px;
+            display: inline-block;
+        }
+        
+        .rounded-box {
+            border: 5px solid rgb(8, 8, 8);
+            border-radius: 50px;
+            padding: 120px;
+            margin: 20px auto;
+    text-align: center;
+    width: 80%;
+    
+        }
+
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+        }
+
+        .mySlides img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            opacity: 0;
+            animation: fade-in-img 2s forwards;
+        }
+
+        /* Анимация за плавно появяване на текста */
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Анимация за плавно появяване на изображенията */
+        @keyframes fade-in-img {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div class="topnav">
+        <img src="Добавяне на малко основен текст.png" height="100" width="170">
+        <ul>
+            <a href="index.html"><p class="decorated-text">Начало</p></a>
+            <a href="Grafiki.html">Графики</a>
+            <a href="Kontakti.html">Контакти</a>
+            <a href="Avtor na saita.html">Автор на сайта</a>
+        </ul>
+    </div>
+    <div class="rounded-box">
+        <hr>
+        <h1>Маркетинг</h1>
+        <h1>и</h1>
+       <h1> Маркетингов микс</h1>
+        <hr>
+        <div class="slideshow-container">
+            <div class="mySlides">
+                <img src="mark.jpeg" height="20" width="10">
+            </div>
+            <div class="mySlides">
+                <img src="creative.jpg"  height="20" width="10">
+            </div>
+            <div class="mySlides">
+                <img src="digital marketing.jpg"  height="20" width="10">
+            </div>
+            <div class="mySlides">
+                <img src="strategy.jpg" height="20" width="10">
+        </div>
+            <div class="mySlides">
+                <img src="contents.jpg"  height="20" width="10">
+            </div>
+            <div class="mySlides">
+                <img src="email.webp"  height="20" width="10">
+            </div>
+            <div class="mySlides">
+                <img src="https://t3.ftcdn.net/jpg/02/10/07/06/360_F_210070659_A5mthkETO3l2ZRKkRphoRcBDmolNMteN.jpg"  height="20" width="10">
+            </div>
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("mySlides");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1; }
+            slides[slideIndex - 1].style.display = "block";
+            slides[slideIndex - 1].querySelector("img").classList.add("fade-in-img");
+            setTimeout(showSlides, 3000);
+        }
+        
+    </script>
+
+<script>
+    showSlides();
+    function showSlides() {
+        let slides = document.getElementsByClassName("mySlides");
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}    
+        slides[slideIndex-1].style.display = "block";  
+        setTimeout(showSlides, 3000); // Автоматично сменяме слайда на всеки 5 секунди
+          }
+
+</script>
+
+</body>
+</div>
+</html>
